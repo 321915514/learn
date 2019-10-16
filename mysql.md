@@ -481,5 +481,58 @@ end
 
 ![1563115374136](C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\1563115374136.png)
 
-![1563115441562](C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\1563115441562.png)
+![](C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\1563115441562.png)
+
+### sql查询
+
+```
+#取出商品价格在100到500的商品
+mysql> select goods_id ,goods_name, shop_price from goods where shop_price between 100 and 500;
+#包括边界值
+
+
+#在4和11中满足
+select goods_id ,cat_id ,goods_name from goods where cat_id in (4,11);
+
+#取出不在第3个栏目和不在第11个的商品
+mysql> select goods_id ,goods_name ,cat_id from goods where cat_id not in(3,11);
+
+ #用and实现
+mysql> select goods_id ,goods_name ,cat_id from goods where cat_id!=3 and cat_id !=11;
+
+ #取出价格大于等于100小于等于300 或价格在4000到5000之间_
+mysql> select goods_id ,goods_name ,shop_price from goods where shop_price between 100 and 300 || shop_price between 3000 and 5000;
+
+ #取出价格大于等于100小于等于300 或价格在4000到5000之间_
+mysql> select goods_id ,goods_name, shop_price,cat_id,click_count from goods where cat_id=3 and (shop_price<1000 || shop_price>3000) and click_count >=5 ;
+
+#用"_"匹配任意字符
+select goods_name from goods where goods_name like "诺基亚N__";
+
+
+sql的查询模型
+   列是变量
+
+
+
+
+ #num  把num的值处于20-29的改为20 ,30-39的改为30
+mysql> #num当变量,同时除10取模乘10
+mysql> update mian set num= floor(num/10)*10  where num between 20 and 39;
+
+#将诺基亚改为HTC加后面的名称
+select goods_name,goods_id, concat("HTC",substring(goods_name,4)) from goods where goods_name like "诺基亚%";
+
+
+#查出最贵的商品的价格
+
+
+
+```
+
+![1570796143196](assets/1570796143196.png)
+
+![1570799863189](assets/1570799863189.png)
+
+![1570801759388](assets/1570801759388.png)
 
