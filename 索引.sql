@@ -2025,7 +2025,7 @@ mysql> # 才
 mysql> 
 mysql> # c2
 mysql> # 例 select * from test where c1='c1' and c2='c2' order by c4 会导致文件内排序
-mysql> # 例 select * from test where c1='c1' and c5='c5' order by c2,c3 会导�
+mysql> # 例 select * from test where c1='c1' and c5='c5' order by c2,c3 会导º
 mysql> # 例 select * from test where c1='c1' and c5='c5' order by c2,c3 只有一个c1索引 ,但是才
 mysql> # 例 select * from test where c1='c1' and c5='c5' order by c2,c3 只有一个c1索引 ,但是c2 ,c3用于排序,无filesort
 mysql> #建的索引index(c1,c2,c3,c4);
